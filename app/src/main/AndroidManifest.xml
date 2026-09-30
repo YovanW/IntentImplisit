@@ -28,6 +28,7 @@
     </queries>
     
     <uses-permission android:name="com.android.alarm.permission.SET_ALARM"/>
+    <uses-permission android:name="android.hardware.camera" android:required = "true"/>
     
     <application
         android:allowBackup="true"

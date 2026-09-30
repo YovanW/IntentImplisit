@@ -55,4 +55,19 @@
         >
     </Button>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Get Camera"
+        android:id="@+id/btnGetPhoto"
+        >
+    </Button>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ivHasil"
+        >
+    </ImageView>
+
 </LinearLayout>
