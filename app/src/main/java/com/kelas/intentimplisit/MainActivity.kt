@@ -1,9 +1,12 @@
 package com.kelas.intentimplisit
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.provider.AlarmClock
 import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -24,7 +27,8 @@ class MainActivity : AppCompatActivity() {
         val _btnKirimPesan = findViewById<Button>(R.id.btnKirimPesan)
         val _btnSetAlarm = findViewById<Button>(R.id.btnSetAlarm)
         val _btnSetTimer = findViewById<Button>(R.id.btnSetTimer)
-
+        val _btnOpenURL = findViewById<Button>(R.id.btnOpenURL)
+        val _etURL = findViewById<EditText>(R.id.etURL)
 
         _btnKirimPesan.setOnClickListener {
             val _sendIntent = Intent().apply{
@@ -55,6 +59,15 @@ class MainActivity : AppCompatActivity() {
                 putExtra(AlarmClock.EXTRA_SKIP_UI, true)
             }
             startActivity(_sendIntentTimer)
+        }
+
+        _btnOpenURL.setOnClickListener {
+            val _webIntent = Intent(Intent.ACTION_VIEW, Uri.parse("http://" + _etURL.text.toString()))
+            if (intent.resolveActivity(packageManager) != null){
+                startActivity(_webIntent)
+            }else{
+                Toast.makeText(this, "Tidak ada aplikasi browser ditemukan", Toast.LENGTH_LONG).show()
+            }
         }
 
     }
